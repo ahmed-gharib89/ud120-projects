@@ -29,8 +29,9 @@ labels, features = targetFeatureSplit(data)
 
 ### it's all yours from here forward!
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, confusion_matrix, precision_score, recall_score
 from sklearn.model_selection import train_test_split
+
 
 features_train, features_test, labeles_train, labeles_test = train_test_split(
                                                             features, labels, random_state = 42, test_size = 0.3)
@@ -41,3 +42,9 @@ pred = dt.predict(features_test)
 acc = accuracy_score(labeles_test, pred)
 
 print(f'The Accurecy is: {acc}')
+print(f'No of pois predicted is: {sum(pred)}')
+print(f'Total number of people in the test set is: {len(pred)}')
+print(f'No of pois in the test set is: {sum(labeles_test)}')
+print(f'confusion matrix: {confusion_matrix(labeles_test, pred)}')
+print(f'Precision score: {precision_score(labeles_test, pred)}')
+print(f'Recall score: {recall_score(labeles_test, pred)}')
