@@ -157,7 +157,7 @@ def targetFeatureSplit( data ):
 """
 
 
-enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r"))
+enron_data = pickle.load(open("../final_project/final_project_dataset2.pkl", "rb"))
 
 poi_list = ['SKILLING JEFFREY K', 'FASTOW ANDREW S', 'LAY KENNETH L']
 
@@ -169,4 +169,4 @@ df.replace('NaN', np.nan)
 print(df.info())
 
 
-#print enron_data['SKILLING JEFFREY K']['exercised_stock_options']
+print(enron_data['SKILLING JEFFREY K']['exercised_stock_options'])
